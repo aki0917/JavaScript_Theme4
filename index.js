@@ -108,6 +108,17 @@ const createChoiceButton = (choice, quiz, quizData) => {
   });
 };
 
+//シャッフル関数
+const shuffle = (array) => {
+  const shuffled = [...array];
+
+  for (let i = shuffled.length - 1; i >= 0; i--){
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j],shuffled[i]];
+  }
+  return shuffled;
+};
+
 // 選択肢を表示する関数
 const displayChoices = (quiz, quizData) => {
   clearChoices();
@@ -116,10 +127,10 @@ const displayChoices = (quiz, quizData) => {
   const choices = [...quiz.incorrect_answers, quiz.correct_answer];
 
   // 選択肢をシャッフル
-  choices.sort(() => Math.random() - 0.5);
+  const shuffledChoices = shuffle(choices);
 
   // 選択肢を表示する
-  choices.forEach((choice) => {
+  shuffledChoices.forEach((choice) => {
     createChoiceButton(choice, quiz, quizData);
   });
 }
