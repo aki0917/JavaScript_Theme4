@@ -3,8 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./style.css">
+  <script defer src="./index.js"></script>
   <title>javaScript課題4</title>
 </head>
 <body>
+  <h1 id="h1-title">ようこそ</h1>
+
+  <h2 id="genre-display" style="display: none;">[ジャンル]<span id="genre"></span></h2>
+  <h2 id="difficulty-display" style="display: none;">[難易度]<span id="difficulty"></span></h2>
+          
+  <input type="text" id="quiz-question" style="width: 800px; height: 30px; margin-bottom: 20px;" placeholder="以下のボタンをクリック" readonly>
+  
+  <button id="start-button" style="display: block;">開始</button>
+
+  <div id="choices" class="choice-list"></div>
 </body>
 </html>
